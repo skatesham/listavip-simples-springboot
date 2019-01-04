@@ -91,12 +91,14 @@
 
 		<!-- LIB STANDALONE CRIADA PARA ENVIO DE EMAIL -->
 		<!-- After mvn install https://github.com/skatesham/lib-standalone-enviaremail -->
+		<!-- 
 		<dependency>
 			<groupId>com.sham.springboot</groupId>
 			<artifactId>enviadoremail</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		 -->
+		 
 		<!-- Getting dependency from a repository github <dependency> <groupId>com.github.skatesham</groupId> 
 			<artifactId>lib-standalone-enviaremail</artifactId> <version>2.0</version> 
 			</dependency> -->
