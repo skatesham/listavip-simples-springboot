@@ -1,6 +1,7 @@
 package com.sham.springboot.curso.listavip.interfaces;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,8 @@ public class ConvidadoController {
 	}
 
 	@RequestMapping(value = "salvar", method = RequestMethod.POST)
-	public String Salvar(@RequestParam("nome") String nome, @RequestParam("nome") String telefone,
-			@RequestParam("nome") String email, Model model) {
+	public String salvar(@RequestParam("nome") String nome, @RequestParam("telefone") String telefone,
+			@RequestParam("email") String email, Model model) {
 
 		Convidado convidado = new Convidado(nome, email, telefone);
 		convidadoRepository.save(convidado);
@@ -48,7 +49,22 @@ public class ConvidadoController {
 		Iterable<Convidado> convidados = convidadoRepository.findAll();
 		model.addAttribute("convidados", convidados);
 
-		return "listaconvidados";
+		return "redirect:listaconvidados";
+	}
+
+	@RequestMapping(value = "deletar")
+	public String deletar(@RequestParam("id") Long id, Model model) {
+
+		Optional<Convidado> convidado = convidadoRepository.findById(id);
+		if (convidado.isPresent()) {
+			convidadoRepository.delete(convidado.get());
+		}
+
+		Iterable<Convidado> convidados = convidadoRepository.findAll();
+		model.addAttribute("convidados", convidados);
+
+		return "redirect:listaconvidados";
+
 	}
 
 }

@@ -61,7 +61,12 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
+		
+		<!--  Atualização do servidor automaticamento com mudanças -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 
 	</dependencies>
 

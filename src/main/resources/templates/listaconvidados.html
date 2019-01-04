@@ -14,13 +14,15 @@
 					<tr>
 						<th>Nome</th>
 						<th>Email</th>
-						<th>telefone</th>
+						<th>Telefone</th>
+						<th>Excluir</th>
 					</tr>
 				</thead>
 				<tr th:each="convidado : ${convidados}">
 					<td><span th:text="${convidado.nome}"></span></td>
 					<td><span th:text="${convidado.email}"></span></td>
 					<td><span th:text="${convidado.telefone}"></span></td>
+					<td><a th:href="@{deletar(id=${convidado.id})}">X</a></td>
 				</tr>
 			</table>
 		</div>
