@@ -23,12 +23,33 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
+	<repositories>
+		<!-- Repositórie to use Github repositories as Depedency -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 
 		<!-- Spring boot Web Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- Excluindo Tomcat do Spring boot -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Adicionar Jetty no lugar do Tomcat ao Spring boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
 		</dependency>
 
 		<!-- Thymeleaf para Templates HTML com Spring Boot -->
@@ -61,11 +82,36 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
-		<!--  Atualização do servidor automaticamento com mudanças -->
+
+		<!-- Atualização do servidor automaticamento com mudanças -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- LIB STANDALONE CRIADA PARA ENVIO DE EMAIL -->
+		<!-- After mvn install https://github.com/skatesham/lib-standalone-enviaremail -->
+		<dependency>
+			<groupId>com.sham.springboot</groupId>
+			<artifactId>enviadoremail</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- Getting dependency from a repository github <dependency> <groupId>com.github.skatesham</groupId> 
+			<artifactId>lib-standalone-enviaremail</artifactId> <version>2.0</version> 
+			</dependency> -->
+
+		<!-- Dependencia para enviar Email -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- EndPoints -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
 	</dependencies>
